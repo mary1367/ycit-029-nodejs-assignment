@@ -19,7 +19,7 @@ const data = [
     age: 25,
   },
 ];
-
+//comments
 // This route gets *ALL* the users
 // app.get("/api/users", (req, res) => {
 //   res.json(data);
