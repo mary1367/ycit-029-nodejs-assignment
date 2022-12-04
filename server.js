@@ -21,8 +21,20 @@ const data = [
 ];
 
 // This route gets *ALL* the users
-app.get("/api/users", (req, res) => {
-  res.json(data);
+// app.get("/api/users", (req, res) => {
+//   res.json(data);
+// });
+
+app.get("/api/users", function (req, res) {
+  const user_id = req.query.id;
+  const token = req.query.token;
+  const geo = req.query.geo;
+
+  res.send({
+    user_id: 1,
+    token: "John Doe",
+    geo: 32,
+  });
 });
 
 // Add a new route to get a *SINGLE* user (you can use either path param or query param)
