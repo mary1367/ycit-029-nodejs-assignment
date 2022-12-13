@@ -25,16 +25,16 @@ const data = [
 //   res.json(data);
 // });
 
-app.get("/api/users", function (req, res) {
-  const user_id = req.query.id;
-  const token = req.query.token;
-  const geo = req.query.geo;
 
-  res.send({
-    user_id: 1,
-    token: "John Doe",
-    geo: 32,
+app.get("/api/users/:id", (req, res) => {
+  const user = data.find((user) => {
+    return user.id === Number(req.params.id);
   });
+
+  if (!user) {
+    res.status(404).end;
+  }
+  res.json(user);
 });
 
 // Add a new route to get a *SINGLE* user (you can use either path param or query param)
